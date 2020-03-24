@@ -100,6 +100,10 @@ defmodule Clickhousex.Codec.Values do
     "'#{Date.to_iso8601(date)}'"
   end
 
+  defp encode_param(query, param) when is_map(param) do
+    encode_param(query, Jason.encode!(param))
+  end
+
   defp encode_param(_query, param) do
     "'" <> escape(param) <> "'"
   end

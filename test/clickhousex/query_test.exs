@@ -5,6 +5,10 @@ defmodule Clickhousex.QueryTest do
   alias Clickhousex.Result
   alias Clickhousex.Query
 
+  test "test parse " do
+    assert 1 == Query.new("SELECT operation as create FROM table")
+  end
+
   test "materialize view create query", ctx do
     create_statement = """
     CREATE TABLE IF NOT EXISTS {{table}} (
